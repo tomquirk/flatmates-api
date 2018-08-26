@@ -1,0 +1,17 @@
+# Linkedin-api
+**tmp/
+credentials*
+
+# Dev
+*.pyc
+.vscode
+/playground.py
+.cookies
+
+# PyPI
+dist
+build
+*.egg-info
+
+# Misc
+.DS_Store
