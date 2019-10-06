@@ -8,10 +8,12 @@ requests = "*"
 "beautifulsoup4" = "*"
 
 [dev-packages]
-"flake8" = "*"
 ipdb = "*"
 "autopep8" = "*"
 black = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

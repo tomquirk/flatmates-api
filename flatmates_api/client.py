@@ -25,7 +25,7 @@ class Client(object):
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
         "Origin": "https://flatmates.com.au",
-        "Referer": "https://flatmates.com.au"
+        "Referer": "https://flatmates.com.au",
     }
 
     def __init__(self, debug=False):
@@ -50,10 +50,15 @@ class Client(object):
         Return a session object that is authenticated.
         """
 
-        self.session.headers.update({
-            'X-CSRF-Token': 'yFNJ1f9LFhZAzxuIZvqIKL8gJ6Vg0eZkKJBwkTbBv8y1TJcJhrQfZAv+cIm1ydHSRFjlV8SnKqHU4HPdjZD+1Q==',
-            # 'X-NewRelic-ID': 'VQUHUFdAAAQHUVNVBwQ='
-        })
-        self.session.cookies.set('_session', 'ImR1eFBKQUFWOW9TQUNZNXJ3SkJCRkNHMSI%3D--e39afde46a5c362a7b44735f6628156dc0d6f037')
-        self.session.cookies.set('_flatmates_session', '1dea9e80af860956d88a763d18237127')
-        # self.session.cookies.set('mid', '7646306593737134223')
+        raise Exception("not implemented")
+
+    def authenticate_session(self, csrf, _session, _flatmates_session):
+        """
+        Authenticate with Flatmates using pre-authenticated session details. Obtain these from your authenticated browser session.
+
+        Return a session object that is authenticated.
+        """
+        self.session.headers.update({"X-CSRF-Token": csrf})
+        self.session.cookies.set("_session", _session)
+        self.session.cookies.set("_flatmates_session", _flatmates_session)
+
