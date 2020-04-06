@@ -126,7 +126,8 @@ class Flatmates(object):
         next_page = res["nextPage"]
         if next_page is None:
             return _listings
-        if max_depth > 0 and query.get("page", 1) == max_depth:
+
+        if max_depth > 0 and page == max_depth:
             return _listings
         return self.search(
             location=location,

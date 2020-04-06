@@ -1,14 +1,17 @@
 import json
-from linkedin_api import Linkedin
+from flatmates_api import Flatmates
 
+api = Flatmates(
+    sessionId="abcd",
+    flatmatesSessionId="abcd",
+    csrfToken="abcd",
+)
 
-with open('credentials.json', 'r') as f:
-    credentials = json.load(f)
+# search people
+people = api.search(location="west-end-4101", min_price=300, max_depth=1)
 
-if credentials:
-    linkedin = Linkedin(credentials['username'], credentials['password'])
-
-    profile = linkedin.get_profile('ACoAABQ11fIBQLGQbB1V1XPBZJsRwfK5r1U2Rzw')
-    profile['contact_info'] = \
-        linkedin.get_profile_contact_info('ACoAABQ11fIBQLGQbB1V1XPBZJsRwfK5r1U2Rzw')
-    connections = linkedin.get_profile_connections(profile['profile_id'], max_connections=20)
+# send message
+person = people[0]
+error = api.send_message(person.get("memberId"), "Hi :)")
+if error:
+    print(f'Error sending message to {person.get("memberId")}')
