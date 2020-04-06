@@ -1,12 +1,12 @@
 # flatmates_api
 
-🏠 Python Wrapper for flatmates.com.au
+🏠 Python Wrapper for [flatmates.com.au](https://flatmates.com.au)
 
 > No "official" API access required - just use a valid Flatmates account!
 
 ### Example usage
 
-1. Log in on the website, and get a _sessionId, _flatmates_session_id and csrf token, then:
+1. Log in on the website, get a `_session`, `_flatmates_session_id` from cookies, and  and `csrf-token` from the page source, then:
 
 ```python
 api = Flatmates(
